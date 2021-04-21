@@ -1,0 +1,10 @@
+11:20:55 **** Incremental Build of configuration Debug for project gpio ****
+make -j8 all 
+arm-none-eabi-size   gpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3668	     20	   1572	   5260	   148c	gpio.elf
+Finished building: default.size.stdout
+ 
+
+11:20:56 Build Finished. 0 errors, 0 warnings. (took 372ms)
+

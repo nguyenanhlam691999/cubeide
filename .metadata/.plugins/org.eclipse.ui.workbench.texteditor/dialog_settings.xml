@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="PORTB0-&gt;ODR &amp;= ~1;"/>
+		<list key="findhistory">
+			<item value="PORTB0-&gt;ODR &amp;= ~1;"/>
+			<item value="if (*GPIOA11_IDR == (0 &lt;&lt; 11)) {"/>
+			<item value="*GPIOA_CRH=8&lt;&lt;12;"/>
+			<item value="if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_11)==1){"/>
+			<item value=" if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_11)==1){"/>
+		</list>
+	</section>
+</section>

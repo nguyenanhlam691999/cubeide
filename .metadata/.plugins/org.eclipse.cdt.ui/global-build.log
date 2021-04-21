@@ -1,0 +1,555 @@
+23:16:42 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4772	     20	   1572	   6364	   18dc	build_mygpio.elf
+Finished building: default.size.stdout
+ 
+23:16:44 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4772	     20	   1572	   6364	   18dc	build_mygpio.elf
+Finished building: default.size.stdout
+ 
+23:17:21 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:102:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x40010800;
+                    ^~~~~~~~~~
+../Core/Src/main.c:109:7: warning: unused variable 'condition3' [-Wunused-variable]
+  char condition3 = 0;
+       ^~~~~~~~~~
+../Core/Src/main.c:108:7: warning: unused variable 'condition2' [-Wunused-variable]
+  char condition2 = 0;
+       ^~~~~~~~~~
+arm-none-eabi-gcc -o "build_mygpio.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\build_mygpio\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="build_mygpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: build_mygpio.elf
+ 
+arm-none-eabi-objdump -h -S  build_mygpio.elf  > "build_mygpio.list"
+arm-none-eabi-objcopy  -O binary  build_mygpio.elf  "build_mygpio.bin"
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4780	     20	   1572	   6372	   18e4	build_mygpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: build_mygpio.bin
+ 
+Finished building: build_mygpio.list
+ 
+23:18:07 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:102:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x40010800;
+                    ^~~~~~~~~~
+../Core/Src/main.c:109:7: warning: unused variable 'condition3' [-Wunused-variable]
+  char condition3 = 0;
+       ^~~~~~~~~~
+../Core/Src/main.c:108:7: warning: unused variable 'condition2' [-Wunused-variable]
+  char condition2 = 0;
+       ^~~~~~~~~~
+arm-none-eabi-gcc -o "build_mygpio.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\build_mygpio\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="build_mygpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: build_mygpio.elf
+ 
+arm-none-eabi-objdump -h -S  build_mygpio.elf  > "build_mygpio.list"
+arm-none-eabi-objcopy  -O binary  build_mygpio.elf  "build_mygpio.bin"
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4784	     20	   1572	   6376	   18e8	build_mygpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: build_mygpio.bin
+ 
+Finished building: build_mygpio.list
+ 
+23:18:44 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:102:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x40010800;
+                    ^~~~~~~~~~
+../Core/Src/main.c:109:7: warning: unused variable 'condition3' [-Wunused-variable]
+  char condition3 = 0;
+       ^~~~~~~~~~
+../Core/Src/main.c:108:7: warning: unused variable 'condition2' [-Wunused-variable]
+  char condition2 = 0;
+       ^~~~~~~~~~
+arm-none-eabi-gcc -o "build_mygpio.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\build_mygpio\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="build_mygpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: build_mygpio.elf
+ 
+arm-none-eabi-objdump -h -S  build_mygpio.elf  > "build_mygpio.list"
+arm-none-eabi-objcopy  -O binary  build_mygpio.elf  "build_mygpio.bin"
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4784	     20	   1572	   6376	   18e8	build_mygpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: build_mygpio.bin
+ 
+Finished building: build_mygpio.list
+ 
+23:19:33 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:102:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x40010800;
+                    ^~~~~~~~~~
+../Core/Src/main.c:109:7: warning: unused variable 'condition3' [-Wunused-variable]
+  char condition3 = 0;
+       ^~~~~~~~~~
+../Core/Src/main.c:108:7: warning: unused variable 'condition2' [-Wunused-variable]
+  char condition2 = 0;
+       ^~~~~~~~~~
+arm-none-eabi-gcc -o "build_mygpio.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\build_mygpio\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="build_mygpio.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: build_mygpio.elf
+ 
+arm-none-eabi-objdump -h -S  build_mygpio.elf  > "build_mygpio.list"
+arm-none-eabi-objcopy  -O binary  build_mygpio.elf  "build_mygpio.bin"
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4760	     20	   1572	   6352	   18d0	build_mygpio.elf
+Finished building: default.size.stdout
+ 
+Finished building: build_mygpio.bin
+Finished building: build_mygpio.list
+ 
+ 
+17:25:34 **** Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f103c8tx.d" -MT"Core/Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Startup/startup_stm32f103c8tx.o" "../Core/Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:76:18: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11=0x400108000;
+                  ^~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc -o "homeword_interrupt.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homeword_interrupt\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homeword_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: homeword_interrupt.elf
+ 
+arm-none-eabi-size   homeword_interrupt.elf 
+arm-none-eabi-objdump -h -S  homeword_interrupt.elf  > "homeword_interrupt.list"
+arm-none-eabi-objcopy  -O binary  homeword_interrupt.elf  "homeword_interrupt.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3576	     20	   1572	   5168	   1430	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: homeword_interrupt.bin
+ 
+Finished building: homeword_interrupt.list
+ 
+17:26:08 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:2: error: 'PORTB0' undeclared (first use in this function)
+  PORTB0->ODR &= ~(1 << 1);
+  ^~~~~~
+../Core/Src/main.c:72:2: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:90:2: error: invalid digit "8" in octal constant
+  08000;
+  ^~~~~
+../Core/Src/main.c:89:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x4001
+                    ^~~~~~
+../Core/Src/main.c:90:2: error: expected ',' or ';' before numeric constant
+  08000;
+  ^~~~~
+../Core/Src/main.c:95:2: error: invalid suffix "C00" on integer constant
+  0C00;
+  ^~~~
+../Core/Src/main.c:94:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x4001
+                   ^~~~~~
+../Core/Src/main.c:95:2: error: expected ',' or ';' before numeric constant
+  0C00;
+  ^~~~
+../Core/Src/main.c:100:2: error: expected ',' or ';' before numeric constant
+  0064;
+  ^~~~
+../Core/Src/main.c:101:22: warning: taking address of expression of type 'void'
+  *EXTI3_IRQHandler = &function_intterupt();
+                      ^
+../Core/Src/main.c:101:22: error: lvalue required as unary '&' operand
+../Core/Src/main.c:103:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x400
+                           ^~~~~
+../Core/Src/main.c:104:2: error: expected ',' or ';' before numeric constant
+  10010;
+  ^~~~~
+../Core/Src/main.c:105:21: error: 'OB1111' undeclared (first use in this function)
+  *AFIO_EXTICR3 &= ~(OB1111 << 15);
+                     ^~~~~~
+../Core/Src/main.c:107:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x4001
+                              ^~~~~~
+../Core/Src/main.c:108:2: error: expected ',' or ';' before numeric constant
+  0400;
+  ^~~~
+../Core/Src/main.c:109:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->IMR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:110:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->FTSR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:33: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:26:46 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:2: error: 'PORTB0' undeclared (first use in this function)
+  PORTB0->ODR &= ~(1 << 1);
+  ^~~~~~
+../Core/Src/main.c:72:2: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x400108000;
+                    ^~~~~~~~~~~
+../Core/Src/main.c:93:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:97:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI3_IRQHandler = 0x00000064;
+                               ^~~~~~~~~~
+../Core/Src/main.c:98:22: warning: taking address of expression of type 'void'
+  *EXTI3_IRQHandler = &function_intterupt();
+                      ^
+../Core/Src/main.c:98:22: error: lvalue required as unary '&' operand
+../Core/Src/main.c:100:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x40010010;
+                           ^~~~~~~~~~
+../Core/Src/main.c:101:21: error: 'OB1111' undeclared (first use in this function)
+  *AFIO_EXTICR3 &= ~(OB1111 << 15);
+                     ^~~~~~
+../Core/Src/main.c:103:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x40010400;
+                              ^~~~~~~~~~
+../Core/Src/main.c:104:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->IMR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:105:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->FTSR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:33: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:27:14 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:2: error: 'PORTB0' undeclared (first use in this function)
+  PORTB0->ODR &= ~(1 << 1);
+  ^~~~~~
+../Core/Src/main.c:72:2: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x400108000;
+                    ^~~~~~~~~~~
+../Core/Src/main.c:93:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:97:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI3_IRQHandler = 0x00000064;
+                               ^~~~~~~~~~
+../Core/Src/main.c:98:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *EXTI3_IRQHandler = function_intterupt;
+                    ^
+../Core/Src/main.c:100:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x40010010;
+                           ^~~~~~~~~~
+../Core/Src/main.c:101:21: error: 'OB1111' undeclared (first use in this function)
+  *AFIO_EXTICR3 &= ~(OB1111 << 15);
+                     ^~~~~~
+../Core/Src/main.c:103:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x40010400;
+                              ^~~~~~~~~~
+../Core/Src/main.c:104:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->IMR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:105:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->FTSR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:33: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:28:50 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:2: error: 'PORTB0' undeclared (first use in this function)
+  PORTB0->ODR &= ~(1 << 1);
+  ^~~~~~
+../Core/Src/main.c:72:2: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x400108000;
+                    ^~~~~~~~~~~
+../Core/Src/main.c:93:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:97:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI3_IRQHandler = 0x00000064;
+                               ^~~~~~~~~~
+../Core/Src/main.c:98:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *EXTI3_IRQHandler = function_intterupt;
+                    ^
+../Core/Src/main.c:100:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x40010010;
+                           ^~~~~~~~~~
+../Core/Src/main.c:103:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x40010400;
+                              ^~~~~~~~~~
+../Core/Src/main.c:104:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->IMR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:105:2: error: invalid type argument of unary '*' (have 'uint32_t {aka long unsigned int}')
+  *PORTA11_interrupt->FTSR |= (1 << 11);
+  ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:33: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:29:22 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:2: error: 'PORTB0' undeclared (first use in this function)
+  PORTB0->ODR &= ~(1 << 1);
+  ^~~~~~
+../Core/Src/main.c:72:2: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x400108000;
+                    ^~~~~~~~~~~
+../Core/Src/main.c:93:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:97:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI3_IRQHandler = 0x00000064;
+                               ^~~~~~~~~~
+../Core/Src/main.c:98:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *EXTI3_IRQHandler = function_intterupt;
+                    ^
+../Core/Src/main.c:100:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x40010010;
+                           ^~~~~~~~~~
+../Core/Src/main.c:103:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x40010400;
+                              ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:33: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:30:32 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:92:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x400108000;
+                    ^~~~~~~~~~~
+../Core/Src/main.c:96:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:100:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI3_IRQHandler = 0x00000064;
+                               ^~~~~~~~~~
+../Core/Src/main.c:101:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *EXTI3_IRQHandler = function_intterupt;
+                    ^
+../Core/Src/main.c:103:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x40010010;
+                           ^~~~~~~~~~
+../Core/Src/main.c:106:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x40010400;
+                              ^~~~~~~~~~
+arm-none-eabi-gcc -o "homeword_interrupt.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homeword_interrupt\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homeword_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: homeword_interrupt.elf
+ 
+arm-none-eabi-objdump -h -S  homeword_interrupt.elf  > "homeword_interrupt.list"
+arm-none-eabi-objcopy  -O binary  homeword_interrupt.elf  "homeword_interrupt.bin"
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: homeword_interrupt.bin
+ 
+Finished building: homeword_interrupt.list
+ 
+17:30:53 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:92:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x400108000;
+                    ^~~~~~~~~~~
+../Core/Src/main.c:96:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:100:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI3_IRQHandler = 0x00000064;
+                               ^~~~~~~~~~
+../Core/Src/main.c:101:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *EXTI3_IRQHandler = function_intterupt;
+                    ^
+../Core/Src/main.c:103:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x40010010;
+                           ^~~~~~~~~~
+../Core/Src/main.c:106:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x40010400;
+                              ^~~~~~~~~~
+arm-none-eabi-gcc -o "homeword_interrupt.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homeword_interrupt\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homeword_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: homeword_interrupt.elf
+ 
+arm-none-eabi-objdump -h -S  homeword_interrupt.elf  > "homeword_interrupt.list"
+arm-none-eabi-objcopy  -O binary  homeword_interrupt.elf  "homeword_interrupt.bin"
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: homeword_interrupt.bin
+ 
+Finished building: homeword_interrupt.list
+ 
+17:31:11 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+17:31:36 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+17:31:53 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+17:32:47 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+17:33:38 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'function_intterupt':
+../Core/Src/main.c:72:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:92:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTA11 = 0x400108000;
+                    ^~~~~~~~~~~
+../Core/Src/main.c:96:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  GPIO_t *PORTB0 = 0x40010C00;
+                   ^~~~~~~~~~
+../Core/Src/main.c:100:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI3_IRQHandler = 0x00000064;
+                               ^~~~~~~~~~
+../Core/Src/main.c:101:20: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *EXTI3_IRQHandler = function_intterupt;
+                    ^
+../Core/Src/main.c:103:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *AFIO_EXTICR3 = 0x40010010;
+                           ^~~~~~~~~~
+../Core/Src/main.c:106:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  EXTI_t *PORTA11_interrupt = 0x40010400;
+                              ^~~~~~~~~~
+arm-none-eabi-gcc -o "homeword_interrupt.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homeword_interrupt\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homeword_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: homeword_interrupt.elf
+ 
+arm-none-eabi-objdump -h -S  homeword_interrupt.elf  > "homeword_interrupt.list"
+arm-none-eabi-objcopy  -O binary  homeword_interrupt.elf  "homeword_interrupt.bin"
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: homeword_interrupt.bin
+ 
+Finished building: homeword_interrupt.list
+ 
+17:34:07 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+17:35:42 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+17:35:56 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+17:36:33 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4760	     20	   1572	   6352	   18d0	build_mygpio.elf
+Finished building: default.size.stdout
+ 
+17:36:56 **** Incremental Build of configuration Debug for project build_mygpio ****
+make -j8 all 
+arm-none-eabi-size   build_mygpio.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4760	     20	   1572	   6352	   18d0	build_mygpio.elf
+Finished building: default.size.stdout
+ 

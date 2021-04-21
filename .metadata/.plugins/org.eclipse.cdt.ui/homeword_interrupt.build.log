@@ -1,0 +1,10 @@
+17:35:56 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+make -j8 all 
+arm-none-eabi-size   homeword_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3880	     20	   1572	   5472	   1560	homeword_interrupt.elf
+Finished building: default.size.stdout
+ 
+
+17:35:56 Build Finished. 0 errors, 0 warnings. (took 236ms)
+
