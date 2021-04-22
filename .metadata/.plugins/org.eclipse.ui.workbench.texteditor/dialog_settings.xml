@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="PORTB0-&gt;ODR &amp;= ~1;"/>
+		<item key="selection" value="uint32_t *AFIO_EXTICR3 = 0x40010010;"/>
 		<list key="findhistory">
+			<item value="uint32_t *AFIO_EXTICR3 = 0x40010010;"/>
 			<item value="PORTB0-&gt;ODR &amp;= ~1;"/>
 			<item value="if (*GPIOA11_IDR == (0 &lt;&lt; 11)) {"/>
 			<item value="*GPIOA_CRH=8&lt;&lt;12;"/>

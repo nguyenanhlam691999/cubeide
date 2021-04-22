@@ -66,13 +66,14 @@ typedef struct {
 	uint32_t EMR;
 	uint32_t RTSR;
 	uint32_t FTSR;
+	uint32_t SWIER;
+	uint32_t PR;
 
 } EXTI_t;
 
-void function_intterupt() {
+void EXTI15_10_IRQHandler() {
 	GPIO_t *PORTB0 = 0x40010C00;
 	PORTB0->CRL |= (0x0011);
-
 	PORTB0->ODR &= ~(1);
 	HAL_Delay(100);
 	PORTB0->ODR |= (1);
@@ -114,23 +115,25 @@ int main(void)
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 // set port pa11
 	GPIO_t *PORTA11 = 0x40010800;
-	PORTA11->CRH |= (0b1000 << 15);
+	PORTA11->CRH &= ~(0xffffffff);
+	PORTA11->CRH |= (0b1000 << 12);
+	PORTA11->ODR |= (0b1 << 11);
+
 // set led output b0
 	GPIO_t *PORTB0 = 0x40010C00;
-	PORTB0->CRL |=(0x0011);
-    PORTB0->ODR|=(0xffff);
-	PORTB0->ODR |= (0b1<<0);
-// set interrupt function
-	uint32_t *EXTI3_IRQHandler = 0x00000064;
-	*EXTI3_IRQHandler = function_intterupt;
-//  set pin interrupt
+	PORTB0->CRL &= ~(0xffffffff);
+	PORTB0->CRL |= (0b00110011);
+	PORTB0->ODR |= (0xffff);
+	PORTB0->ODR |= (0b11 << 0);
 
+//  set pin interrupt
 	uint32_t *AFIO_EXTICR3 = 0x40010010;
-	*AFIO_EXTICR3 &= ~(0b1111 << 15);
-// set interrupt mode
-	uint32_t *PORTA11_interrupt =( uint32_t *)0x40010400;
+	*AFIO_EXTICR3 &= ~(0b1111 << 12);
+/// set interrupt mode
+	EXTI_t *PORTA11_interrupt = 0x40010400;
 	PORTA11_interrupt->IMR |= (1 << 11);
 	PORTA11_interrupt->FTSR |= (1 << 11);
+	PORTA11_interrupt->RTSR |= (1 << 11);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -139,7 +142,15 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	}
+
+		if (((PORTA11->IDR >> 11) & 1) == 0) {
+
+			PORTB0->ODR &= ~(0b1<<1 );
+		} else {
+			PORTB0->ODR |= (0b1<<1 );
+		}
+
+}
   /* USER CODE END 3 */
 }
 
@@ -185,9 +196,20 @@ void SystemClock_Config(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin : PA11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }
 
@@ -202,10 +224,10 @@ static void MX_GPIO_Init(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-	/* User can add his own implementation to report the HAL error return state */
-	__disable_irq();
-	while (1) {
-	}
+/* User can add his own implementation to report the HAL error return state */
+__disable_irq();
+while (1) {
+}
   /* USER CODE END Error_Handler_Debug */
 }
 
