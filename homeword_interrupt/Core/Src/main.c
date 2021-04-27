@@ -54,6 +54,7 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 typedef struct {
 	uint32_t CRL;
 	uint32_t CRH;
@@ -69,51 +70,72 @@ typedef struct {
 	uint32_t SWIER;
 	uint32_t PR;
 } EXTI_t;
-
-void EXTI15_10_IRQHandler() {
+void delay(uint32_t time) {
+	uint32_t timeout = time * 8000;
+	for (int i = 0; i < timeout; i++) {
+		__asm("NOP");
+	}
+}
+/*void EXTI15_10_IRQHandler() {
+	uint32_t *EXTI_PR = 0x40010414;
+	*EXTI_PR |= (1 << 11);
 	GPIO_t *PORTB0 = 0x40010C00;
 	PORTB0->CRL &= ~(0xffffffff);
-	PORTB0->CRL |= (0b0011);
-	PORTB0->ODR &= ~(0b1);
-	HAL_Delay(100);
-	PORTB0->ODR |= (0b1);
-	HAL_Delay(100);
+	PORTB0->CRL |= (0b00110011);
 
+	PORTB0->ODR &= ~(0b1);
+	delay(10);
+	PORTB0->ODR |= (0b1);
+	delay(10);
+
+}*/
+void my_interrupt()
+{
+	    uint32_t *EXTI_PR = 0x40010414;
+		*EXTI_PR |= (1 << 11);
+		GPIO_t *PORTB0 = 0x40010C00;
+		PORTB0->CRL &= ~(0xffffffff);
+		PORTB0->CRL |= (0b00110011);
+
+		PORTB0->ODR &= ~(0b1);
+		delay(10);
+		PORTB0->ODR |= (0b1);
+		delay(10);
 }
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
-  * @retval int
-  */
-int main(void)
-{
-  /* USER CODE BEGIN 1 */
+ * @brief  The application entry point.
+ * @retval int
+ */
+int main(void) {
+	/* USER CODE BEGIN 1 */
 
-  /* USER CODE END 1 */
+	/* USER CODE END 1 */
 
-  /* MCU Configuration--------------------------------------------------------*/
+	/* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
 
-  /* USER CODE BEGIN Init */
+	/* USER CODE BEGIN Init */
 
-  /* USER CODE END Init */
+	/* USER CODE END Init */
 
-  /* Configure the system clock */
-  SystemClock_Config();
+	/* Configure the system clock */
+	SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
+	/* USER CODE BEGIN SysInit */
 
-  /* USER CODE END SysInit */
+	/* USER CODE END SysInit */
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  /* USER CODE BEGIN 2 */
+	/* Initialize all configured peripherals */
+	MX_GPIO_Init();
+	/* USER CODE BEGIN 2 */
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
-	EXTI15_10_IRQHandler();
+	__HAL_RCC_AFIO_CLK_ENABLE();
+//	EXTI15_10_IRQHandler();
 // set port pa11
 	GPIO_t *PORTA11 = 0x40010800;
 	PORTA11->CRH &= ~(0xffffffff);
@@ -129,78 +151,79 @@ int main(void)
 
 //  set pin interrupt
 	uint32_t *AFIO_EXTICR3 = 0x40010010;
-	*AFIO_EXTICR3 &=~ (0b1111 << 12);
+	*AFIO_EXTICR3 &= ~(0b1111 << 12);
 /// set interrupt mode
 	EXTI_t *PORTA11_interrupt = 0x40010400;
-	PORTA11_interrupt->FTSR |= (1 << 11);
 	PORTA11_interrupt->IMR |= (1 << 11);
+	PORTA11_interrupt->FTSR |= (1 << 11);
+// ENABLE NVIC_ISER0
+	uint32_t *NVIC_ISER1 = 0xE000E104;
+	*NVIC_ISER1 |= (1 << 8);
+// COPY
+	uint32_t*VTOR=0xE000ED08;
+	*VTOR=0x2000000;
+	memcpy(0x20000000 , 0x08000000, 304);
+//set
+	uint32_t *EXTI15_10_IRQHandler=
+	/* USER CODE END 2 */
 
-
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+	/* Infinite loop */
+	/* USER CODE BEGIN WHILE */
 	while (1) {
-    /* USER CODE END WHILE */
+		/* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+		/* USER CODE BEGIN 3 */
 
-		/*if (((PORTA11->IDR >> 11) & 1) == 0) {
+		PORTB0->ODR &= ~(0b1 << 1);
+		HAL_Delay(2000);
+		PORTB0->ODR |= (0b1 << 1);
+		HAL_Delay(2000);
 
-			PORTB0->ODR &= ~(0b1<<1 );
-		} else {
-			PORTB0->ODR |= (0b1<<1 );
-		}
-*/
-}
-  /* USER CODE END 3 */
+	}
+	/* USER CODE END 3 */
 }
 
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
-{
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void SystemClock_Config(void) {
+	RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
+	RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+	/** Initializes the RCC Oscillators according to the specified parameters
+	 * in the RCC_OscInitTypeDef structure.
+	 */
+	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+	RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+	RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+		Error_Handler();
+	}
+	/** Initializes the CPU, AHB and APB buses clocks
+	 */
+	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
+			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
-  {
-    Error_Handler();
-  }
+	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) {
+		Error_Handler();
+	}
 }
 
 /**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
+ * @brief GPIO Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_GPIO_Init(void) {
 
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
+	/* GPIO Ports Clock Enable */
+	__HAL_RCC_GPIOA_CLK_ENABLE();
 
 }
 
@@ -209,17 +232,16 @@ static void MX_GPIO_Init(void)
 /* USER CODE END 4 */
 
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-/* User can add his own implementation to report the HAL error return state */
-__disable_irq();
-while (1) {
-}
-  /* USER CODE END Error_Handler_Debug */
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void) {
+	/* USER CODE BEGIN Error_Handler_Debug */
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1) {
+	}
+	/* USER CODE END Error_Handler_Debug */
 }
 
 #ifdef  USE_FULL_ASSERT
