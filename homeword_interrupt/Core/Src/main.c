@@ -136,6 +136,9 @@ int main(void) {
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 	__HAL_RCC_AFIO_CLK_ENABLE();
 //	EXTI15_10_IRQHandler();
+	uint32_t*VTOR=0xE000ED08;
+		*VTOR=0x20000000;
+		memcpy(0x20000000 , 0x00000000, 304);
 // set port pa11
 	GPIO_t *PORTA11 = 0x40010800;
 	PORTA11->CRH &= ~(0xffffffff);
@@ -160,12 +163,11 @@ int main(void) {
 	uint32_t *NVIC_ISER1 = 0xE000E104;
 	*NVIC_ISER1 |= (1 << 8);
 // COPY
-	uint32_t*VTOR=0xE000ED08;
-	*VTOR=0x2000000;
-	memcpy(0x20000000 , 0x08000000, 304);
+
 //set
-	uint32_t *EXTI15_10_IRQHandler=
-	/* USER CODE END 2 */
+	uint32_t *EXTI15_10_IRQHandler=0x200000E0;
+	*EXTI15_10_IRQHandler=my_interrupt;
+					/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
@@ -175,9 +177,9 @@ int main(void) {
 		/* USER CODE BEGIN 3 */
 
 		PORTB0->ODR &= ~(0b1 << 1);
-		HAL_Delay(2000);
+		HAL_Delay(1000);
 		PORTB0->ODR |= (0b1 << 1);
-		HAL_Delay(2000);
+		HAL_Delay(1000);
 
 	}
 	/* USER CODE END 3 */

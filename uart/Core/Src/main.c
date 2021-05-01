@@ -86,9 +86,7 @@ int main(void)
 	  uint8_t mantissa :4;
 	  uint32_t fraction :12;
   }BRR_t;
-  typedef struct{
 
-  };
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -113,8 +111,7 @@ __HAL_RCC_USART1_CLK_ENABLE();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_UART_Transmit(&huart1, "NALAM\r\n", 7, HAL_TIMEOUT);
-	  HAL_Delay(1000);
+
   }
   /* USER CODE END 3 */
 }

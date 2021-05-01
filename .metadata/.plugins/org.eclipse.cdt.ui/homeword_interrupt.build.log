@@ -1,29 +1,50 @@
-20:19:20 **** Incremental Build of configuration Debug for project homeword_interrupt ****
+20:40:05 **** Incremental Build of configuration Debug for project homeword_interrupt ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'EXTI15_10_IRQHandler':
-../Core/Src/main.c:80:22: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
-  uint32_t *EXTI_PR = 0x40010414;
-                      ^~~~~~~~~~
-../Core/Src/main.c:82:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
-  GPIO_t *PORTB0 = 0x40010C00;
-                   ^~~~~~~~~~
+../Core/Src/main.c: In function 'my_interrupt':
+../Core/Src/main.c:94:26: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+      uint32_t *EXTI_PR = 0x40010414;
+                          ^~~~~~~~~~
+../Core/Src/main.c:96:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+   GPIO_t *PORTB0 = 0x40010C00;
+                    ^~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:127:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+../Core/Src/main.c:139:16: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t*VTOR=0xE000ED08;
+                ^~~~~~~~~~
+../Core/Src/main.c:141:3: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+   memcpy(0x20000000 , 0x00000000, 304);
+   ^~~~~~
+../Core/Src/main.c:141:3: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Core/Src/main.c:141:3: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:141:10: warning: passing argument 1 of 'memcpy' makes pointer from integer without a cast [-Wint-conversion]
+   memcpy(0x20000000 , 0x00000000, 304);
+          ^~~~~~~~~~
+../Core/Src/main.c:141:10: note: expected 'void *' but argument is of type 'int'
+../Core/Src/main.c:141:3: warning: null argument where non-null required (argument 2) [-Wnonnull]
+   memcpy(0x20000000 , 0x00000000, 304);
+   ^~~~~~
+../Core/Src/main.c:143:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
   GPIO_t *PORTA11 = 0x40010800;
                     ^~~~~~~~~~
-../Core/Src/main.c:133:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+../Core/Src/main.c:149:19: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
   GPIO_t *PORTB0 = 0x40010C00;
                    ^~~~~~~~~~
-../Core/Src/main.c:140:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+../Core/Src/main.c:156:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
   uint32_t *AFIO_EXTICR3 = 0x40010010;
                            ^~~~~~~~~~
-../Core/Src/main.c:143:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+../Core/Src/main.c:159:30: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
   EXTI_t *PORTA11_interrupt = 0x40010400;
                               ^~~~~~~~~~
-../Core/Src/main.c:147:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+../Core/Src/main.c:163:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
   uint32_t *NVIC_ISER1 = 0xE000E104;
                          ^~~~~~~~~~
+../Core/Src/main.c:168:33: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *EXTI15_10_IRQHandler=0x200000E0;
+                                 ^~~~~~~~~~
+../Core/Src/main.c:169:23: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  *EXTI15_10_IRQHandler=my_interrupt;
+                       ^
 arm-none-eabi-gcc -o "homeword_interrupt.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homeword_interrupt\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homeword_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: homeword_interrupt.elf
  
@@ -31,7 +52,7 @@ arm-none-eabi-objdump -h -S  homeword_interrupt.elf  > "homeword_interrupt.list"
 arm-none-eabi-objcopy  -O binary  homeword_interrupt.elf  "homeword_interrupt.bin"
 arm-none-eabi-size   homeword_interrupt.elf 
    text	   data	    bss	    dec	    hex	filename
-   4092	     20	   1572	   5684	   1634	homeword_interrupt.elf
+   4164	     20	   1572	   5756	   167c	homeword_interrupt.elf
 Finished building: default.size.stdout
  
 Finished building: homeword_interrupt.bin
@@ -39,5 +60,5 @@ Finished building: homeword_interrupt.bin
 Finished building: homeword_interrupt.list
  
 
-20:19:20 Build Finished. 0 errors, 7 warnings. (took 821ms)
+20:40:07 Build Finished. 0 errors, 14 warnings. (took 2s.253ms)
 
