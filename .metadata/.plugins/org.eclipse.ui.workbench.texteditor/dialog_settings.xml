@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="void EXTI15_10_IRQHandler() {"/>
+		<item key="selection" value="#define Mantissa 4"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="#define Mantissa 4"/>
+			<item value="// SET TX A9 OUTPUT OPEN DRAIN  RX A10 INPUT FLOATING"/>
 			<item value="void EXTI15_10_IRQHandler() {"/>
 			<item value="EXTI15_10_IRQHandler"/>
 			<item value="GPIO_t *PORTB0 = 0x40010C00;"/>
 			<item value="uint32_t *AFIO_EXTICR3 = 0x40010010;"/>
 			<item value="PORTB0-&gt;ODR &amp;= ~1;"/>
 			<item value="if (*GPIOA11_IDR == (0 &lt;&lt; 11)) {"/>
-			<item value="*GPIOA_CRH=8&lt;&lt;12;"/>
-			<item value="if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_11)==1){"/>
 		</list>
 		<list key="replacehistory">
 		</list>

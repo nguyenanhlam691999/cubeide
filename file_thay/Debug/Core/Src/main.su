@@ -1,0 +1,11 @@
+main.c:21:5:main	8	static
+main.c:37:6:Custom_Clock_Init	24	static
+main.c:54:6:Custom_SysTick_Init	16	static
+main.c:62:6:Custom_Delay	24	static
+main.c:75:6:Custom_Uart_Init	24	static
+main.c:96:6:Custom_Uart_Write_Char	24	static
+main.c:107:9:Custom_Uart_Read_Char	24	static
+main.c:119:6:Custom_Uart_Write_String	32	static
+main.c:136:6:Custom_Uart_DMA_Enable	32	static
+main.c:160:6:Custom_Uart_Interrupt_Enable	16	static
+main.c:170:6:USART1_IRQHandler	8	static
