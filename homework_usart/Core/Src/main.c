@@ -82,12 +82,15 @@ typedef struct {
 
 myUSART_t *myUSART1 = 0x40013800;
 GPIO_t *PINA = 0x40010800;
+RCC_t *myRCC = 0x40021000;
+
 char dataUsart;
 void my_usartInit() {
 	// SET TX A9 alternative OUTPUT PUSH PULL  RX A10 INPUT FLOATING
+	PINA->CRH&=~0xffff;
 	PINA->CRH |= (0b1011 << 4) | (0b0100 << 8);
 	// SET USART BAUD RATE
-	myUSART1->BRR |= (52 << Mantissa) | (1 << Fraction);
+	myUSART1->BRR = (52 << Mantissa) | (1 << Fraction);
 	// SET DATA LENGTH 8 BIT
 	myUSART1->CR1 &= ~(0b1 << 12);
 	// ENABLE USART , RECEIVER , TRANSMITTER
@@ -170,8 +173,10 @@ int main(void) {
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
 	/* USER CODE BEGIN 2 */
-	__HAL_RCC_GPIOA_CLK_ENABLE();
-	__HAL_RCC_USART1_CLK_ENABLE();
+	//__HAL_RCC_GPIOA_CLK_ENABLE();
+	//__HAL_RCC_USART1_CLK_ENABLE();
+	myRCC->APB2ENR |= (1<<14) | (1<<2);
+
 	my_usartInit();
 	my_usartInit_interrupt();
 
@@ -183,6 +188,7 @@ int main(void) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
+		my_usartSend('a');
 		HAL_Delay(1000);
 
 

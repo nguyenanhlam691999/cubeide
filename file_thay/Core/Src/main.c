@@ -28,8 +28,8 @@ int main()
 	Custom_Uart_Write_String((uint8_t*)"hello world\r\n");
 	while(1)
 	{
-
-
+		Custom_Uart_Write_String((uint8_t*)"hello world\r\n");
+		Custom_Delay(1000);
 	}
 	return 0;
 }

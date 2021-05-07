@@ -1,0 +1,31 @@
+19:08:51 **** Incremental Build of configuration Debug for project hal_usart ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:102:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+    HAL_UART_Transmit(&huart1, "hello\r\n", 7, HAL_MAX_DELAY);
+                               ^~~~~~~~~~~
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:337:0,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:700:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "hal_usart.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\hal_usart\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="hal_usart.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: hal_usart.elf
+ 
+arm-none-eabi-objdump -h -S  hal_usart.elf  > "hal_usart.list"
+arm-none-eabi-objcopy  -O binary  hal_usart.elf  "hal_usart.bin"
+arm-none-eabi-size   hal_usart.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7104	     20	   1636	   8760	   2238	hal_usart.elf
+Finished building: default.size.stdout
+ 
+Finished building: hal_usart.bin
+ 
+Finished building: hal_usart.list
+ 
+
+19:08:52 Build Finished. 0 errors, 1 warnings. (took 1s.470ms)
+
