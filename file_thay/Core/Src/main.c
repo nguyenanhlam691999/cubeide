@@ -23,7 +23,7 @@ int main()
 	Custom_Clock_Init();
 	Custom_SysTick_Init();
 	Custom_Uart_Init();
-	//Custom_Uart_DMA_Enable();
+	Custom_Uart_DMA_Enable();
 	Custom_Uart_Interrupt_Enable();
 	Custom_Uart_Write_String((uint8_t*)"hello world\r\n");
 	while(1)

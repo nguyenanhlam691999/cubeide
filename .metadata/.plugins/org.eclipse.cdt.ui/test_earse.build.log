@@ -1,0 +1,34 @@
+23:23:08 **** Incremental Build of configuration Debug for project test_earse ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:2: warning: implicit declaration of function 'MY_EFROM_INIT' [-Wimplicit-function-declaration]
+  MY_EFROM_INIT();
+  ^~~~~~~~~~~~~
+../Core/Src/main.c:100:20: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+   uint32_t * STK = 0xe000e010;
+                    ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:182:6: warning: conflicting types for 'MY_EFROM_INIT'
+ void MY_EFROM_INIT() {
+      ^~~~~~~~~~~~~
+../Core/Src/main.c:89:2: note: previous implicit declaration of 'MY_EFROM_INIT' was here
+  MY_EFROM_INIT();
+  ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "test_earse.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\test_earse\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_earse.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: test_earse.elf
+ 
+arm-none-eabi-objdump -h -S  test_earse.elf  > "test_earse.list"
+arm-none-eabi-objcopy  -O binary  test_earse.elf  "test_earse.bin"
+arm-none-eabi-size   test_earse.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3996	      8	   1572	   5576	   15c8	test_earse.elf
+Finished building: default.size.stdout
+ 
+Finished building: test_earse.bin
+ 
+Finished building: test_earse.list
+ 
+
+23:23:09 Build Finished. 0 errors, 3 warnings. (took 1s.465ms)
+

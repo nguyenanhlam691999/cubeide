@@ -1,0 +1,10 @@
+22:34:37 **** Incremental Build of configuration Debug for project my_final_project_imic ****
+make -j8 all 
+arm-none-eabi-size   my_final_project_imic.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1752	      8	   6692	   8452	   2104	my_final_project_imic.elf
+Finished building: default.size.stdout
+ 
+
+22:34:38 Build Finished. 0 errors, 0 warnings. (took 313ms)
+

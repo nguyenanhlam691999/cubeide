@@ -1,0 +1,12 @@
+17:21:48 **** Incremental Build of configuration Debug for project homework_pwm ****
+make -j8 all 
+arm-none-eabi-gcc -o "homework_pwm.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homework_pwm\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homework_pwm.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Core/Src/main.o: In function `LED_BLINK':
+C:/Users/ZBOOK/Documents/cubeide/homework_pwm/Debug/../Core/Src/main.c:163: undefined reference to `MY_DELAY'
+C:/Users/ZBOOK/Documents/cubeide/homework_pwm/Debug/../Core/Src/main.c:167: undefined reference to `MY_DELAY'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:58: homework_pwm.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+17:21:48 Build Failed. 3 errors, 0 warnings. (took 844ms)
+

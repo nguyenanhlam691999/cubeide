@@ -1,0 +1,38 @@
+22:57:40 **** Incremental Build of configuration Debug for project homework_pwm_read ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'MY_CLOCK_INTER_INIT':
+../Core/Src/main.c:10:29: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *MY_RCC_APB2ENR = 0x40021018;
+                             ^~~~~~~~~~
+../Core/Src/main.c: In function 'MY_TIMER1_PWM_INPU_INIT':
+../Core/Src/main.c:52:26: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *TIMER1_SMCR = (uint32_t) 0x40012c08;
+                          ^
+../Core/Src/main.c:53:26: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *TIMER1_CCER = (uint32_t) 0x40012c20;
+                          ^
+../Core/Src/main.c:56:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *TIMER1_CR1 = (uint32_t) 0x40012c00;
+                         ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:64:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t * TIMER1_CCR1 = 0x40012c34;
+                           ^~~~~~~~~~
+arm-none-eabi-gcc -o "homework_pwm_read.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homework_pwm_read\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homework_pwm_read.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: homework_pwm_read.elf
+ 
+arm-none-eabi-objdump -h -S  homework_pwm_read.elf  > "homework_pwm_read.list"
+arm-none-eabi-objcopy  -O binary  homework_pwm_read.elf  "homework_pwm_read.bin"
+arm-none-eabi-size   homework_pwm_read.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3064	     12	   1572	   4648	   1228	homework_pwm_read.elf
+Finished building: default.size.stdout
+ 
+Finished building: homework_pwm_read.bin
+Finished building: homework_pwm_read.list
+ 
+ 
+
+22:57:41 Build Finished. 0 errors, 5 warnings. (took 766ms)
+

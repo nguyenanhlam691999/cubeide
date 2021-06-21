@@ -1,0 +1,10 @@
+21:30:47 **** Incremental Build of configuration Debug for project dung_i2c ****
+make -j8 all 
+arm-none-eabi-size   dung_i2c.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4128	     32	   1568	   5728	   1660	dung_i2c.elf
+Finished building: default.size.stdout
+ 
+
+21:30:47 Build Finished. 0 errors, 0 warnings. (took 228ms)
+

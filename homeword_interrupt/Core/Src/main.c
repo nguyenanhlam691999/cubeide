@@ -70,38 +70,10 @@ typedef struct {
 	uint32_t SWIER;
 	uint32_t PR;
 } EXTI_t;
-void delay(uint32_t time) {
-	uint32_t timeout = time * 8000;
-	for (int i = 0; i < timeout; i++) {
-		__asm("NOP");
-	}
-}
-/*void EXTI15_10_IRQHandler() {
-	uint32_t *EXTI_PR = 0x40010414;
-	*EXTI_PR |= (1 << 11);
-	GPIO_t *PORTB0 = 0x40010C00;
-	PORTB0->CRL &= ~(0xffffffff);
-	PORTB0->CRL |= (0b00110011);
 
-	PORTB0->ODR &= ~(0b1);
-	delay(10);
-	PORTB0->ODR |= (0b1);
-	delay(10);
+void delay(uint32_t time);
+void my_interrupt();
 
-}*/
-void my_interrupt()
-{
-	    uint32_t *EXTI_PR = 0x40010414;
-		*EXTI_PR |= (1 << 11);
-		GPIO_t *PORTB0 = 0x40010C00;
-		PORTB0->CRL &= ~(0xffffffff);
-		PORTB0->CRL |= (0b00110011);
-
-		PORTB0->ODR &= ~(0b1);
-		delay(10);
-		PORTB0->ODR |= (0b1);
-		delay(10);
-}
 /* USER CODE END 0 */
 
 /**
@@ -135,23 +107,17 @@ int main(void) {
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 	__HAL_RCC_AFIO_CLK_ENABLE();
-//	EXTI15_10_IRQHandler();
-	uint32_t*VTOR=0xE000ED08;
-		*VTOR=0x20000000;
-		memcpy(0x20000000 , 0x00000000, 304);
 // set port pa11
 	GPIO_t *PORTA11 = 0x40010800;
 	PORTA11->CRH &= ~(0xffffffff);
 	PORTA11->CRH |= (0b1000 << 12);
 	PORTA11->ODR |= (0b1 << 11);
-
 // set led output b0
 	GPIO_t *PORTB0 = 0x40010C00;
 	PORTB0->CRL &= ~(0xffffffff);
 	PORTB0->CRL |= (0b00110011);
 	PORTB0->ODR |= (0xffff);
 	PORTB0->ODR |= (0b11 << 0);
-
 //  set pin interrupt
 	uint32_t *AFIO_EXTICR3 = 0x40010010;
 	*AFIO_EXTICR3 &= ~(0b1111 << 12);
@@ -162,24 +128,24 @@ int main(void) {
 // ENABLE NVIC_ISER0
 	uint32_t *NVIC_ISER1 = 0xE000E104;
 	*NVIC_ISER1 |= (1 << 8);
+
 // COPY
-
+	uint32_t *VTOR = 0xE000ED08;
+	*VTOR = 0x20000000;
+	memcpy(0x20000000, 0x08000000, 304);
 //set
-	uint32_t *EXTI15_10_IRQHandler=0x200000E0;
-	*EXTI15_10_IRQHandler=my_interrupt;
-					/* USER CODE END 2 */
+	uint32_t *EXTI15_10_IRQHandler = 0x200000e0;
+	*EXTI15_10_IRQHandler = my_interrupt;
 
+	/* USER CODE END 2 */
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
-
 		/* USER CODE BEGIN 3 */
-
-		PORTB0->ODR &= ~(0b1 << 1);
-		HAL_Delay(1000);
-		PORTB0->ODR |= (0b1 << 1);
-		HAL_Delay(1000);
+		//FlashErase(0x08000000, 31);
+		/*update_firmware();
+		 */
 
 	}
 	/* USER CODE END 3 */
@@ -230,6 +196,37 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
+
+void my_interrupt() {
+	uint32_t *EXTI_PR = 0x40010414;
+	 *EXTI_PR |= (1 << 11);
+	 GPIO_t *PORTB0 = 0x40010C00;
+	 PORTB0->CRL &= ~(0xffffffff);
+	 PORTB0->CRL |= (0b00110011);
+
+	 PORTB0->ODR &= ~(0b1);
+
+}
+void delay(uint32_t time) {
+	uint32_t timeout = time * 8000;
+	for (int i = 0; i < timeout; i++) {
+		__asm("NOP");
+	}
+}
+/*void EXTI15_10_IRQHandler() {
+	uint32_t *EXTI_PR = 0x40010414;
+	*EXTI_PR |= (1 << 11);
+	GPIO_t *PORTB0 = 0x40010C00;
+	PORTB0->CRL &= ~(0xffffffff);
+	PORTB0->CRL |= (0b00110011);
+
+	PORTB0->ODR &= ~(0b1);
+	delay(10);
+	PORTB0->ODR |= (0b1);
+	delay(10);
+
+}*/
+
 
 /* USER CODE END 4 */
 

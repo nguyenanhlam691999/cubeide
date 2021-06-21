@@ -74,12 +74,9 @@ void intterupt() {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	/*uint32_t *AIRCR = 0xE000ED0C;
-	*AIRCR = 0x20000000;*/
 
 	uint32_t *EXTI4_IRQHandler = (uint32_t*) 0x000000E0;
 	EXTI4_IRQHandler = intterupt;
-
 	GPIO_t *PORTA11 = 0x40010800;
 	PORTA11->CRH &= ~(0xf << 15);
 	PORTA11->CRH |= (0b1000 << 15);

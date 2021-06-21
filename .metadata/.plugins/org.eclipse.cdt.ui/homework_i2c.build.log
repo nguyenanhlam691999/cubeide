@@ -1,0 +1,10 @@
+21:37:32 **** Incremental Build of configuration Debug for project homework_i2c ****
+make -j8 all 
+arm-none-eabi-size   homework_i2c.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12844	     28	   1660	  14532	   38c4	homework_i2c.elf
+Finished building: default.size.stdout
+ 
+
+21:37:33 Build Finished. 0 errors, 0 warnings. (took 228ms)
+

@@ -1,0 +1,29 @@
+22:31:58 **** Incremental Build of configuration Debug for project homework_rcc ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:59:17: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ RCC_t *MY_RCC = 0x40021000;
+                 ^~~~~~~~~~
+../Core/Src/main.c:60:21: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ GPIO_t *MY_GPIO_B = 0x40010c00;
+                     ^~~~~~~~~~
+../Core/Src/main.c:196:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+ static void MX_GPIO_Init(void) {
+             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "homework_rcc.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\homework_rcc\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="homework_rcc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: homework_rcc.elf
+ 
+arm-none-eabi-objdump -h -S  homework_rcc.elf  > "homework_rcc.list"
+arm-none-eabi-objcopy  -O binary  homework_rcc.elf  "homework_rcc.bin"
+arm-none-eabi-size   homework_rcc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1960	     28	   1572	   3560	    de8	homework_rcc.elf
+Finished building: default.size.stdout
+ 
+Finished building: homework_rcc.bin
+Finished building: homework_rcc.list
+ 
+ 
+
+22:31:58 Build Finished. 0 errors, 3 warnings. (took 808ms)
+

@@ -1,4 +1,4 @@
-19:09:56 **** Incremental Build of configuration Debug for project file_thay ****
+21:46:29 **** Incremental Build of configuration Debug for project file_thay ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "file_thay.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\file_thay\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="file_thay.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -8,7 +8,7 @@ arm-none-eabi-objdump -h -S  file_thay.elf  > "file_thay.list"
 arm-none-eabi-objcopy  -O binary  file_thay.elf  "file_thay.bin"
 arm-none-eabi-size   file_thay.elf 
    text	   data	    bss	    dec	    hex	filename
-   1340	     12	   1572	   2924	    b6c	file_thay.elf
+   1444	     12	   1700	   3156	    c54	file_thay.elf
 Finished building: default.size.stdout
  
 Finished building: file_thay.bin
@@ -16,5 +16,5 @@ Finished building: file_thay.bin
 Finished building: file_thay.list
  
 
-19:09:57 Build Finished. 0 errors, 0 warnings. (took 1s.269ms)
+21:46:30 Build Finished. 0 errors, 0 warnings. (took 806ms)
 

@@ -1,0 +1,9 @@
+main.c:92:6:MY_RCC_INIT	16	static
+main.c:106:6:MY_TIMER1_INIT	48	static
+main.c:146:6:GPIO_PWM_OUTPUT	4	static
+main.c:155:6:LED_BLINK	16	static
+main.c:170:6:TIM1_UP_IRQHandler	16	static
+main.c:181:5:main	24	static
+main.c:235:7:SystemClock_Config	72	static
+main.c:269:14:MX_GPIO_Init	16	static
+main.c:284:7:Error_Handler	4	static,ignoring_inline_asm

@@ -80,14 +80,37 @@ typedef struct {
 
 } RCC_t;
 
+typedef struct {
+
+	uint32_t CCR;
+	uint32_t CNDTR;
+	uint32_t CPAR;
+	uint32_t CMAR;
+} DMA_t;
 myUSART_t *myUSART1 = 0x40013800;
 GPIO_t *PINA = 0x40010800;
 RCC_t *myRCC = 0x40021000;
+DMA_t *myDMA = 0x40020058;
+char dataUsart[128] = { 0 };
+char data = 0;
+void my_dmaInit() {
 
-char dataUsart;
+	myDMA->CPAR = 0x40013804;
+	myDMA->CMAR = dataUsart;
+	myDMA->CNDTR = sizeof(dataUsart);
+	// set memory size and peripheral size 8 bit
+	myDMA->CCR &= ~(0b1111 << 8);
+	// set circle mode enable memory increase
+	myDMA->CCR |= (0b1 << 5) | (0b1 << 7);
+	//enable dma
+	myDMA->CCR |= (0b1 << 0);
+	// enable usart dma
+	myUSART1->CR3 |= (0b1 << 6);
+}
+;
 void my_usartInit() {
 	// SET TX A9 alternative OUTPUT PUSH PULL  RX A10 INPUT FLOATING
-	PINA->CRH&=~0xffff;
+	PINA->CRH &= ~0xffff;
 	PINA->CRH |= (0b1011 << 4) | (0b0100 << 8);
 	// SET USART BAUD RATE
 	myUSART1->BRR = (52 << Mantissa) | (1 << Fraction);
@@ -98,35 +121,37 @@ void my_usartInit() {
 
 }
 
-void my_usartSend(char data)
-{
+void my_usartSend(char data) {
 	//  SET UP DATA SEND
 	myUSART1->DR = data;
 	// WAITE UNTIL DATA SEND
 	while (((myUSART1->SR >> 6) & 1) != 1)
 		;
 }
-void my_usartInit_interrupt()
-{
+void my_usartInit_interrupt() {
 	// ENABLE INTERRUPT FOR USART1 RXNEIE
-	myUSART1->CR1 |= (1<<5);
+	myUSART1->CR1 |= (1 << 5);
 	//  ENABLE VECTOR INTTERUPT USART1
 	uint32_t *NVIC_ISER0 = 0xE000E104;
-	*NVIC_ISER0 |= (1<<5);
+	*NVIC_ISER0 |= (1 << 5);
+
 }
-char my_usartGet()
-{
+char my_usartGet() {
+
 	// WAIT UNTIL DATA READY TO READ
-	while(((myUSART1->SR >> 5) & 1)!=1);
+	while (((myUSART1->SR >> 5) & 1) != 1)
+		;
 	// GET DATA
 	return myUSART1->DR;
 }
 void USART1_IRQHandler() {
 	// SET PENDING INTERRUPT VECTOR USART1
-	 uint32_t *NVIC_ISPR0 = 0XE000E204;
-	 *NVIC_ISPR0 = (1<<5);
+	/*uint32_t *NVIC_ISPR0 = 0XE000E204;
+	 *NVIC_ISPR0 |= (0b1 << 5);*/
 	// GET DATA
-	 dataUsart=my_usartGet();
+	data = my_usartGet();
+	/*uint32_t *NVIC_ICPR0 = 0XE000E208;
+	 *NVIC_ISPR0 &=~ (0b1 << 5);*/
 
 }
 
@@ -173,13 +198,13 @@ int main(void) {
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
 	/* USER CODE BEGIN 2 */
-	//__HAL_RCC_GPIOA_CLK_ENABLE();
-	//__HAL_RCC_USART1_CLK_ENABLE();
-	myRCC->APB2ENR |= (1<<14) | (1<<2);
-
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_USART1_CLK_ENABLE();
+	__HAL_RCC_DMA1_CLK_ENABLE();
+	//myRCC->APB2ENR |= (1 << 14) | (1 << 2);
 	my_usartInit();
 	my_usartInit_interrupt();
-
+	my_dmaInit();
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -188,8 +213,11 @@ int main(void) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
-		my_usartSend('a');
+		my_usartSend(1);
 		HAL_Delay(1000);
+
+
+
 
 
 	}

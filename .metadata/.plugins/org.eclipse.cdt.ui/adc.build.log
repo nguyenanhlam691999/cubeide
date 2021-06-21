@@ -1,0 +1,37 @@
+16:00:31 **** Incremental Build of configuration Debug for project adc ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'MY_GPIO':
+../Core/Src/main.c:58:27: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *MY_ADC_PORTA = 0x40010800;
+                           ^~~~~~~~~~
+../Core/Src/main.c: In function 'MY_ADC_INIT':
+../Core/Src/main.c:66:26: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *MY_ADC_JSQR = 0x40012438;
+                          ^~~~~~~~~~
+../Core/Src/main.c:69:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *MY_ADC_CR1 = 0x40012404;
+                         ^~~~~~~~~~
+../Core/Src/main.c:72:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *MY_ADC_CR2 = 0x40012408;
+                         ^~~~~~~~~~
+../Core/Src/main.c:82:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t * MY_ADC_SR = 0x40012400;
+                         ^~~~~~~~~~
+arm-none-eabi-gcc -o "adc.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\ZBOOK\Documents\cubeide\adc\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="adc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: adc.elf
+ 
+arm-none-eabi-objdump -h -S  adc.elf  > "adc.list"
+arm-none-eabi-objcopy  -O binary  adc.elf  "adc.bin"
+arm-none-eabi-size   adc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3844	     20	   1572	   5436	   153c	adc.elf
+Finished building: default.size.stdout
+ 
+Finished building: adc.bin
+ 
+Finished building: adc.list
+ 
+
+16:00:32 Build Finished. 0 errors, 5 warnings. (took 854ms)
+

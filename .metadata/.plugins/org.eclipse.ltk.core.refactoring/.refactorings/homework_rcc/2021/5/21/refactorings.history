@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;homework_rcc/Core/Src/my_define&apos; to &apos;my_define.h&apos;" description="Rename resource &apos;my_define&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/my_define" name="my_define.h" stamp="1621690466502" updateReferences="true"/>
+</session>

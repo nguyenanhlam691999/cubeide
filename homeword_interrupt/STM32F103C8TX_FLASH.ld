@@ -36,9 +36,9 @@ _Min_Stack_Size = 0x400 ;	/* required amount of stack */
 /* Memories definition */
 MEMORY
 {
-  newram       : ORIGIN = 0x00000400,   LENGTH = 1K
+  newram       : ORIGIN = 0x20000000,   LENGTH = 1K
   RAM    (xrw)    : ORIGIN = 0x20000400,   LENGTH = 19K
-  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 64K
+  FLASH    (rx)    : ORIGIN = 0x08000000,   LENGTH = 64K
 }
 
 /* Sections */
@@ -129,6 +129,7 @@ SECTIONS
   {
     . = ALIGN(4);
     _sdata = .;        /* create a global symbol at data start */
+   
     *(.data)           /* .data sections */
     *(.data*)          /* .data* sections */
     *(.RamFunc)        /* .RamFunc sections */
